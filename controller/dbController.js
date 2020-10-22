@@ -1,11 +1,8 @@
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-const customersModel = require('../model/customersModel')
-const odersModel = require('../model/odersModel')
-const orderLinesModel = require('../model/orderLinesModel')
-const productsModel = require('../model/productsModel')
+const itemsModel = require('../model/itemsModel')
 const usersModel = require('../model/usersModel')
-const sellersModel = require('../model/sellersModel')
+const transactionsModel = require('../model/transactionsModel')
 
 // ⚠️ propietary code, don't change it ⚠️
 // this code will create db.json automatically if your folder doesn't have one
@@ -24,11 +21,8 @@ let db;
     const adapter = new FileSync('db.json')
     db = low(adapter)
     db.defaults({
-      orders: [],
-      customers: [],
-      orderLines: [],
-      products: [],
-      sellers: [],
+      items: [],
+      transactions: [],
       users: []
     })
       .write()
@@ -79,20 +73,11 @@ function get(tableName, query) {
 function add(tableName, body) {
   let shapedBody
 
-  if (tableName == 'customers') {
-    shapedBody = shapeObject(body, customersModel)
-  }
-  if (tableName == 'orders') {
-    shapedBody = shapeObject(body, odersModel)
-  }
-  if (tableName == 'orderLines') {
-    shapedBody = shapeObject(body, orderLinesModel)
-  }
   if (tableName == 'products') {
-    shapedBody = shapeObject(body, productsModel)
+    shapedBody = shapeObject(body, itemsModel)
   }
   if (tableName == 'sellers') {
-    shapedBody = shapeObject(body, sellersModel)
+    shapedBody = shapeObject(body, transactionsModel)
   }
   if (tableName == 'users') {
     shapedBody = shapeObject(body, usersModel)

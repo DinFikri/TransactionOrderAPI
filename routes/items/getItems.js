@@ -5,8 +5,8 @@ const authorization = require('../../midleware/authorizationMidleware')
 
 app.use(authorization)
 
-app.get('/orderLines', (req, res) => {
-  const result = db.get('orderLines', req.query)
+app.get('/items', (req, res) => {
+  const result = db.get('items', req.query)
   res.send(result)
 })
 

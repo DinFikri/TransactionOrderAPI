@@ -5,9 +5,15 @@ const authorization = require('../../midleware/authorizationMidleware')
 
 app.use(authorization)
 
-app.get('/orders', (req, res) => {
-  const result = db.get('orders', req.query)
-  res.send(result)
+app.post('/items', (req, res) => {
+  const body = req.body
+  const result = db.add('items', body)
+  if (!result) {
+    res.status(400).send('Wrong body')
+  } else {
+    res.send(result)
+  }
+  return
 })
 
 

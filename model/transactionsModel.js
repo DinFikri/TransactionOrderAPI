@@ -1,5 +1,7 @@
 module.exports = [
   'id',
+  'nominal',
+  'categoryid',
   'date',
-  'total'
+  'tax'
 ]
