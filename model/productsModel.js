@@ -1,7 +1,7 @@
 module.exports = [
   'id',
   'orderLineId',
-  'sellersId',
+  'sellerId',
   'name',
   'price'
 ]
