@@ -1,8 +1,11 @@
 {
-  "orders": [],
-  "customers": [],
-  "orderLines": [],
-  "products": [],
-  "users": [],
-  "sellers": []
+  "items": [],
+  "transactions": [],
+  "users": [
+    {
+      "userName": "Arizona",
+      "email": "ggshajj@tye.com",
+      "password": "sadnasdaks"
+    }
+  ]
 }
